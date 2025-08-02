@@ -1,22 +1,18 @@
-import { Briefcase, Users, GraduationCap } from "lucide-react"; 
-
-export default function Services() {
+export default function ServicesSection() {
   const services = [
-    {
-      title: "Recruitment Solutions",
-      desc: "Connecting top talent with leading companies across industries.",
-      icon: <Briefcase className="w-10 h-10 text-blue-600" />,
-    },
-    {
-      title: "HR Consulting",
-      desc: "Helping businesses with HR strategies, policies, and compliance.",
-      icon: <Users className="w-10 h-10 text-blue-600" />,
-    },
-    {
-      title: "Training & Development",
-      desc: "Upskilling employees with workshops and leadership programs.",
-      icon: <GraduationCap className="w-10 h-10 text-blue-600" />,
-    },
+    "Job design & candidate profiling",
+    "Interviewing & short‑listing",
+    "Pre‑employment checks & references",
+    "Allocate right candidate to right job",
+    "Improve hiring quality & reduce cost",
+  ];
+  const sectors = [
+    "Industrial & Engineering",
+    "IT & Telecom",
+    "Media & Pharma",
+    "Education & FMCG",
+    "Security & Real Estate",
+    "Retail & Supply Chain",
   ];
 
   return (
@@ -26,19 +22,40 @@ export default function Services() {
           Our Services
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-10">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-gray-50 p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow text-center"
-            >
-              <div className="flex justify-center mb-6">{service.icon}</div>
-              <h3 className="text-2xl font-semibold text-gray-700 mb-4">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 leading-relaxed">{service.desc}</p>
-            </div>
-          ))}
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <div>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              We deliver professional HR consultancy and recruitment services
+              across industries. Our approach ensures efficiency, quality, and
+              cost-effectiveness in talent acquisition.
+            </p>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 mb-6">
+              {services.map((s, i) => (
+                <li key={i}>{s}</li>
+              ))}
+            </ul>
+            <h3 className="text-xl font-semibold mb-4 text-gray-800">
+              Industries We Serve
+            </h3>
+            <ul className="flex flex-wrap gap-3">
+              {sectors.map((sec, i) => (
+                <span
+                  key={i}
+                  className="bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm"
+                >
+                  {sec}
+                </span>
+              ))}
+            </ul>
+          </div>
+
+          {/* Right Image */}
+          <img
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+            alt="HR Services"
+            className="rounded-2xl shadow-lg"
+          />
         </div>
       </div>
     </section>
