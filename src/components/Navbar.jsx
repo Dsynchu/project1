@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "../assets/konnect.webp"; // 👈 apna logo
+import logo from "../assets/konnect.webp";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -9,16 +9,21 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      if (window.scrollY > 50) setScrolled(true);
+      else setScrolled(false);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const menuItems = [
+    "about",
+    "company-profile",
+    "services",
+    "jobs",
+    "israel", // 👈 added Israel
+    "contact",
+  ];
 
   return (
     <motion.nav
@@ -44,20 +49,19 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6 font-medium">
-          {["about", "company-profile", "services", "jobs", "contact"].map(
-            (item) => (
-              <li key={item}>
-                <a
-                  href={`#${item}`}
-                  className="relative group"
-                >
-                  <span className="hover:text-blue-500 transition">{item.charAt(0).toUpperCase() + item.slice(1).replace("-", " ")}</span>
-                  {/* underline animation */}
-                  <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-500 transition-all group-hover:w-full"></span>
-                </a>
-              </li>
-            )
-          )}
+          {menuItems.map((item) => (
+            <li key={item}>
+              <a
+                href={`#${item}`}
+                className="relative group"
+              >
+                <span className="hover:text-blue-500 transition">
+                  {item.charAt(0).toUpperCase() + item.slice(1).replace("-", " ")}
+                </span>
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-500 transition-all group-hover:w-full"></span>
+              </a>
+            </li>
+          ))}
         </ul>
 
         {/* Mobile Button */}
@@ -83,18 +87,16 @@ export default function Navbar() {
               scrolled ? "bg-white text-gray-800" : "bg-gray-900 text-white"
             }`}
           >
-            {["about", "company-profile", "services", "jobs", "contact"].map(
-              (item) => (
-                <a
-                  key={item}
-                  href={`#${item}`}
-                  className="block hover:text-blue-500 transition"
-                  onClick={() => setIsOpen(false)} // close menu on click
-                >
-                  {item.charAt(0).toUpperCase() + item.slice(1).replace("-", " ")}
-                </a>
-              )
-            )}
+            {menuItems.map((item) => (
+              <a
+                key={item}
+                href={`#${item}`}
+                className="block hover:text-blue-500 transition"
+                onClick={() => setIsOpen(false)}
+              >
+                {item.charAt(0).toUpperCase() + item.slice(1).replace("-", " ")}
+              </a>
+            ))}
           </motion.div>
         )}
       </AnimatePresence>
