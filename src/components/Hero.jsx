@@ -1,54 +1,67 @@
 import { useEffect, useRef } from "react";
-import anime from "animejs/lib/anime.es.js";   // ✅ Correct import
+import Typed from "typed.js";
+import { motion } from "framer-motion";
 
 export default function Hero() {
-  const headingRef = useRef(null);
+  const el = useRef(null);
 
   useEffect(() => {
-    if (headingRef.current) {
-      anime.timeline({ loop: false })
-        .add({
-          targets: headingRef.current.querySelectorAll("span"),
-          translateY: [100, 0],
-          opacity: [0, 1],
-          easing: "easeOutExpo",
-          duration: 1200,
-          delay: (el, i) => 200 + 50 * i,
-        });
-    }
-  }, []);
+    const typed = new Typed(el.current, {
+      strings: [
+        "Connecting Talent with Opportunities",
+        "Building Careers, Empowering Businesses",
+        "Your Trusted HR Consultancy"
+      ],
+      typeSpeed: 50,
+      backSpeed: 30,
+      backDelay: 1500,
+      loop: true,
+    });
 
-  const heading = "Connecting Talent with Opportunities".split(" ");
+    return () => typed.destroy();
+  }, []);
 
   return (
     <section
-      className="h-screen flex items-center justify-center bg-cover bg-center relative"
+      id="hero"
+      className="relative h-screen flex items-center justify-center bg-cover bg-center"
       style={{
         backgroundImage:
-          "url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f')",
+          "url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f')", // 👈 premium HR stock image
       }}
     >
-      <div className="absolute inset-0 bg-black/50"></div>
-      <div className="relative text-center text-white px-4 md:px-12">
-        <h1
-          ref={headingRef}
-          className="text-3xl md:text-6xl font-bold mb-6 flex flex-wrap justify-center gap-2"
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+
+      {/* Content */}
+      <div className="relative text-center text-white px-6">
+        <motion.h1
+          initial={{ opacity: 0, y: -40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-4xl md:text-6xl font-bold mb-6"
         >
-          {heading.map((word, i) => (
-            <span key={i} className="inline-block opacity-0">
-              {word}
-            </span>
-          ))}
-        </h1>
-        <p className="text-base md:text-lg max-w-2xl mx-auto mb-8 opacity-90">
-          We help businesses find the right people, and individuals find their dream careers.
-        </p>
-        <a
-          href="#contact"
-          className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold text-sm md:text-base transition"
+          Welcome to <span className="text-blue-400">KonnectHRC</span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="text-lg md:text-2xl mb-8"
         >
-          Get in Touch
-        </a>
+          <span ref={el}></span>
+        </motion.p>
+
+        <motion.a
+          href="#about"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold shadow-lg transition"
+        >
+          Explore More
+        </motion.a>
       </div>
     </section>
   );

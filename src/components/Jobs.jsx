@@ -1,4 +1,9 @@
+import { useState } from "react";
+import ApplyForm from "./ApplyForm"; // 👈 import form
+
 export default function JobsSection() {
+  const [selectedJob, setSelectedJob] = useState(null);
+
   const jobs = [
     {
       title: "Printing Machine Operator",
@@ -30,7 +35,7 @@ export default function JobsSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Image */}
           <img
-            src="https://images.unsplash.com/photo-1629904853716-f0bc54eea481?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src="https://images.unsplash.com/photo-1629904853716-f0bc54eea481?q=80&w=2070&auto=format&fit=crop"
             alt="Job Opportunities"
             className="rounded-2xl shadow-lg"
           />
@@ -48,17 +53,22 @@ export default function JobsSection() {
                 <p className="text-gray-600 mb-4">
                   <strong>Salary:</strong> {job.salary}
                 </p>
-                <a
-                  href="#contact"
+                <button
+                  onClick={() => setSelectedJob(job.title)}
                   className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition"
                 >
                   Apply Now
-                </a>
+                </button>
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      {/* Modal for Apply Form */}
+      {selectedJob && (
+        <ApplyForm jobTitle={selectedJob} onClose={() => setSelectedJob(null)} />
+      )}
     </section>
   );
 }

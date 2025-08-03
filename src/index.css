@@ -1,1 +1,9 @@
+html {
+  color-scheme: light;
+  background: white; /*  no black flash */
+}
 @import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
