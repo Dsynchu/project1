@@ -24,44 +24,56 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative h-screen flex items-center justify-center bg-cover bg-center"
+      className="relative h-screen flex items-center justify-center bg-fixed bg-cover bg-center"
       style={{
         backgroundImage:
-          "url('https://images.unsplash.com/photo-1605902711622-cfb43c44367e?auto=format&fit=crop&w=2070&q=80')",
+          "url('https://innovationuae.com/wp-content/uploads/2020/12/about-banner.jpg')",
       }}
     >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-transparent z-10"></div>
 
       {/* Content */}
-      <div className="relative text-center text-white px-6 z-20">
+      <div className="relative text-center text-white px-6 z-20 max-w-3xl">
         <motion.h1
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-4xl md:text-6xl font-bold mb-6"
+          className="text-4xl md:text-6xl font-extrabold mb-6 drop-shadow-lg"
         >
-          Welcome to <span className="text-blue-400">KonnectHRC</span>
+          Welcome to{" "}
+          <span className="text-blue-400 animate-pulse">KonnectHRC</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="text-lg md:text-2xl mb-8"
+          className="text-lg md:text-2xl mb-10 font-light"
         >
           <span ref={el}></span>
         </motion.p>
 
-        <motion.a
-          href="#about"
+        {/* CTA Buttons */}
+        <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold shadow-lg transition"
+          className="flex justify-center gap-6"
         >
-          Explore More
-        </motion.a>
+          <a
+            href="#about"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold shadow-lg transition"
+          >
+            Explore More
+          </a>
+          <a
+            href="#contact"
+            className="inline-block bg-white hover:bg-gray-100 text-gray-900 px-6 py-3 rounded-full font-semibold shadow-lg transition"
+          >
+            Contact Us
+          </a>
+        </motion.div>
       </div>
     </section>
   );

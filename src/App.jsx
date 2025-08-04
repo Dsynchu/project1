@@ -16,15 +16,20 @@ import FAQ from "./components/FAQ";
 import Blog from "./components/Blog";
 import Newsletter from "./components/Newsletter";
 import Israel from "./components/Israel"; 
+
+// Full page imports
 import AboutPage from "./pages/AboutPage"; 
 import CompanyProfilePage from "./pages/CompanyProfilePage";
+import ServicesPage from "./pages/ServicesPage";   // 👈 Added Services Full Page
 
 function App() {
   return (
     <Router>
+      {/* Navbar global hai, har page me show hoga */}
       <Navbar />
+
       <Routes>
-        {/* Homepage route */}
+        {/* Homepage */}
         <Route
           path="/"
           element={
@@ -76,6 +81,9 @@ function App() {
 
         {/* Company Profile Full Page */}
         <Route path="/company-profile" element={<CompanyProfilePage />} />
+
+        {/* Services Full Page 👈 */}
+        <Route path="/services" element={<ServicesPage />} />
 
         {/* Israel Full Page */}
         <Route path="/israel" element={<Israel />} />

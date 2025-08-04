@@ -1,77 +1,96 @@
 import { motion } from "framer-motion";
+import Services from "../components/Services";
+import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 
 export default function ServicesPage() {
-  const services = [
-    "Job design & candidate profiling",
-    "Interviewing & short‑listing",
-    "Pre‑employment checks & references",
-    "Allocate right candidate to right job",
-    "Improve hiring quality & reduce cost",
-  ];
-  const sectors = [
-    "Industrial & Engineering",
-    "IT & Telecom",
-    "Media & Pharma",
-    "Education & FMCG",
-    "Security & Real Estate",
-    "Retail & Supply Chain",
+  const extraServices = [
+    {
+      title: "Executive Search",
+      desc: "Finding the right leadership talent for critical roles in organizations, ensuring long-term success.",
+      img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+    },
+    {
+      title: "Global Recruitment",
+      desc: "Connecting talent across borders, ensuring international companies get access to skilled professionals.",
+      img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0",
+    },
+    {
+      title: "HR Outsourcing",
+      desc: "Providing end-to-end HR solutions so businesses can focus on growth while we manage their workforce.",
+      img: "https://images.unsplash.com/photo-1531497865144-0464ef8fb9a0",
+    },
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-center text-gray-800 mb-12"
-        >
-          Our Services
-        </motion.h2>
+    <div className="font-sans antialiased bg-white text-gray-900">
+      {/* Services Component (original) */}
+      <Services />
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+      {/* ✨ Extra Detailed Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-6 lg:px-20">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold text-center text-gray-800 mb-12"
           >
-            <p className="text-gray-600 leading-relaxed mb-6">
-              We deliver professional HR consultancy and recruitment services
-              across industries. Our approach ensures efficiency, quality, and
-              cost-effectiveness in talent acquisition.
-            </p>
-            <ul className="list-disc list-inside text-gray-700 space-y-2 mb-6">
-              {services.map((s, i) => (
-                <li key={i}>{s}</li>
-              ))}
-            </ul>
-            <h3 className="text-xl font-semibold mb-4 text-gray-800">
-              Industries We Serve
-            </h3>
-            <ul className="flex flex-wrap gap-3">
-              {sectors.map((sec, i) => (
-                <span
-                  key={i}
-                  className="bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm"
-                >
-                  {sec}
-                </span>
-              ))}
-            </ul>
-          </motion.div>
+            More of Our Expertise
+          </motion.h2>
 
-          {/* Right Image */}
-          <motion.img
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
-            alt="HR Services"
-            className="rounded-2xl shadow-lg"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          />
+          <div className="grid md:grid-cols-3 gap-12">
+            {extraServices.map((srv, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-2xl shadow-md hover:shadow-xl transition p-6"
+              >
+                <img
+                  src={srv.img}
+                  alt={srv.title}
+                  className="w-full h-48 object-cover rounded-xl mb-6"
+                />
+                <h3 className="text-2xl font-semibold text-gray-800 mb-3">
+                  {srv.title}
+                </h3>
+                <p className="text-gray-600">{srv.desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* ✨ Call to Action */}
+      <section className="py-20 bg-blue-600 text-white text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-4xl font-bold mb-6"
+        >
+          Ready to Transform Your Hiring?
+        </motion.h2>
+        <p className="max-w-2xl mx-auto mb-8 text-lg">
+          Let us handle your recruitment challenges while you focus on your
+          business growth. Partner with KonnectHRC today!
+        </p>
+        <a
+          href="#contact"
+          className="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition"
+        >
+          Contact Us
+        </a>
+      </section>
+
+      {/* Footer */}
+      <Footer />
+      <ScrollToTop />
+    </div>
   );
 }

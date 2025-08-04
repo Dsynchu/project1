@@ -7,20 +7,20 @@ const clients = [
     logo: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Generic_law_firm_logo.svg" // Placeholder; download actual from cohengroup.net or cohen-gresser.com
   },
   {
-    name: "Konnect HRC",
-    logo: "../assets/konnect.webp" // Use your local asset; ensure path is correct
+    name: "BCC International Group",
+    logo: "https://www.bccgroupinternational.com/assets/images/bcc-logo-all/bcc-international-gold.svg" // Use your local asset; ensure path is correct
   },
   {
-    name: "Emirates Group",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Emirates_Logo.svg" // Valid Wikimedia URL for Dubai-based company
+    name: "Dubai Investment Limited",
+    logo: "https://www.dubaiinvestments.com/media/iqif5wdj/di-logo.png" // Valid Wikimedia URL for Dubai-based company
   },
   {
-    name: "Emaar Properties",
-    logo: "https://upload.wikimedia.org/wikipedia/en/2/2d/Emaar_Properties_logo.svg" // Valid Wikimedia URL for Dubai-based company
+    name: "Al Maha Catering",
+    logo: "https://www.almahacatering.ae/wp-content/uploads/2023/01/ALMAHACATERING-VERTICAL-WHITE.png" // Valid Wikimedia URL for Dubai-based company
   },
   {
-    name: "Khansaheb Group",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/8/8b/Generic_construction_logo.svg" // Placeholder; download actual from khansaheb.com
+    name: "Al-futtaim",
+    logo: "https://innovationuae.com/wp-content/uploads/2021/01/al-futtaim-200.png" // Placeholder; download actual from khansaheb.com
   },
   
   { name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
