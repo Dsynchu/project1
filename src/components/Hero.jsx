@@ -10,7 +10,7 @@ export default function Hero() {
       strings: [
         "Connecting Talent with Opportunities",
         "Building Careers, Empowering Businesses",
-        "Your Trusted HR Consultancy"
+        "Your Trusted HR Consultancy",
       ],
       typeSpeed: 50,
       backSpeed: 30,
@@ -27,14 +27,14 @@ export default function Hero() {
       className="relative h-screen flex items-center justify-center bg-cover bg-center"
       style={{
         backgroundImage:
-          "url('https://images.unsplash.com/photo-1752866109925-fa5821c5053d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", // 👈 premium HR stock image
+          "url('https://images.unsplash.com/photo-1605902711622-cfb43c44367e?auto=format&fit=crop&w=2070&q=80')",
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
 
       {/* Content */}
-      <div className="relative text-center text-white px-6">
+      <div className="relative text-center text-white px-6 z-20">
         <motion.h1
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}

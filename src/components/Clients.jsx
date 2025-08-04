@@ -1,6 +1,28 @@
 import { motion } from "framer-motion";
 
 const clients = [
+
+    {
+    name: "Cohen & Gresser (Dubai Office)",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Generic_law_firm_logo.svg" // Placeholder; download actual from cohengroup.net or cohen-gresser.com
+  },
+  {
+    name: "Konnect HRC",
+    logo: "../assets/konnect.webp" // Use your local asset; ensure path is correct
+  },
+  {
+    name: "Emirates Group",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Emirates_Logo.svg" // Valid Wikimedia URL for Dubai-based company
+  },
+  {
+    name: "Emaar Properties",
+    logo: "https://upload.wikimedia.org/wikipedia/en/2/2d/Emaar_Properties_logo.svg" // Valid Wikimedia URL for Dubai-based company
+  },
+  {
+    name: "Khansaheb Group",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/8/8b/Generic_construction_logo.svg" // Placeholder; download actual from khansaheb.com
+  },
+  
   { name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
   { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" },
   { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" },
@@ -50,3 +72,9 @@ export default function Clients() {
     </section>
   );
 }
+
+
+
+
+
+
