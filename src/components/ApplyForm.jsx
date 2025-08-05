@@ -33,7 +33,7 @@ export default function ApplyForm({ jobTitle, onClose }) {
 
       await axios.post("http://localhost:5000/api/apply", data);
 
-      setSuccess("✅ Application submitted successfully!");
+      setSuccess("Application submitted successfully!");
       setFormData({ name: "", email: "", phone: "", resume: null });
 
       setTimeout(() => {
@@ -42,7 +42,7 @@ export default function ApplyForm({ jobTitle, onClose }) {
       }, 2000);
     } catch (error) {
       console.error(error);
-      setSuccess("❌ Failed to submit application. Try again!");
+      setSuccess(" Failed to submit application. Try again!");
     } finally {
       setLoading(false);
     }

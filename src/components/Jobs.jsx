@@ -3,79 +3,79 @@ import { motion } from "framer-motion";
 export default function JobsSection() {
   // Dubai Jobs
   const jobsDubai = [
-    { 
-      title: "Printing Machine Operator", 
-      location: "Dubai, UAE", 
+    {
+      title: "Printing Machine Operator",
+      location: "Dubai, UAE",
       salary: "AED 1200 – 1500",
-      img: "/images/printing.jpg", 
-      details: "2+ years exp · Full-time · 8 hrs/day" 
+      img: "https://images.unsplash.com/photo-1581091870634-1d22d89f3d89?auto=format&fit=crop&w=800&q=80",
+      details: "2+ years exp · Full-time · 8 hrs/day",
     },
-    { 
-      title: "HR Assistant", 
-      location: "Dubai, UAE", 
+    {
+      title: "HR Assistant",
+      location: "Dubai, UAE",
       salary: "AED 2000 – 2500",
-      img: "/images/hr.jpg", 
-      details: "1+ year exp · Full-time · Office based" 
+      img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80",
+      details: "1+ year exp · Full-time · Office based",
     },
-    { 
-      title: "Sales Executive", 
-      location: "Dubai, UAE", 
+    {
+      title: "Sales Executive",
+      location: "Dubai, UAE",
       salary: "AED 2500 – 3000",
-      img: "/images/sales.jpg", 
-      details: "Target based · Commission available" 
+      img: "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?auto=format&fit=crop&w=800&q=80",
+      details: "Target based · Commission available",
     },
-    { 
-      title: "Data Entry Clerk", 
-      location: "Dubai, UAE", 
+    {
+      title: "Data Entry Clerk",
+      location: "Dubai, UAE",
       salary: "AED 1800 – 2200",
-      img: "/images/dataentry.jpg", 
-      details: "Basic computer knowledge · MS Office" 
+      img: "https://images.unsplash.com/photo-1584697964403-4dff5d6e6fbb?auto=format&fit=crop&w=800&q=80",
+      details: "Basic computer knowledge · MS Office",
     },
-    { 
-      title: "Office Boy", 
-      location: "Dubai, UAE", 
+    {
+      title: "Office Boy",
+      location: "Dubai, UAE",
       salary: "AED 1200 – 1500",
-      img: "/images/officeboy.jpg", 
-      details: "Cleaning · Support tasks · Tea/coffee" 
+      img: "https://images.unsplash.com/photo-1581574208694-d7a2b4d5c57d?auto=format&fit=crop&w=800&q=80",
+      details: "Cleaning · Support tasks · Tea/coffee",
     },
   ];
 
   // Overseas Jobs
   const jobsOverseas = [
-    { 
-      title: "Nurse", 
-      location: "Qatar", 
+    {
+      title: "Nurse",
+      location: "Qatar",
       salary: "QAR 4000 – 5000",
-      img: "/images/nurse.jpg", 
-      details: "Valid license required · Full-time" 
+      img: "https://images.unsplash.com/photo-1580281657520-a1f67b3a5e2c?auto=format&fit=crop&w=800&q=80",
+      details: "Valid license required · Full-time",
     },
-    { 
-      title: "Welder", 
-      location: "Saudi Arabia", 
+    {
+      title: "Welder",
+      location: "Saudi Arabia",
       salary: "SAR 2000 – 2500",
-      img: "/images/welder.jpg", 
-      details: "Gulf exp preferred · 9 hrs/day" 
+      img: "https://images.unsplash.com/photo-1592853625600-00a5fcd0e19b?auto=format&fit=crop&w=800&q=80",
+      details: "Gulf exp preferred · 9 hrs/day",
     },
-    { 
-      title: "Driver", 
-      location: "Oman", 
+    {
+      title: "Driver",
+      location: "Oman",
       salary: "OMR 180 – 220",
-      img: "/images/driver.jpg", 
-      details: "Valid GCC license required" 
+      img: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80",
+      details: "Valid GCC license required",
     },
-    { 
-      title: "Chef", 
-      location: "Bahrain", 
+    {
+      title: "Chef",
+      location: "Bahrain",
       salary: "BHD 300 – 400",
-      img: "/images/chef.jpg", 
-      details: "Multi-cuisine exp preferred" 
+      img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
+      details: "Multi‑cuisine exp preferred",
     },
-    { 
-      title: "Electrician", 
-      location: "Kuwait", 
+    {
+      title: "Electrician",
+      location: "Kuwait",
       salary: "KWD 150 – 200",
-      img: "/images/electrician.jpg", 
-      details: "ITI/Diploma · 3+ years exp" 
+      img: "https://images.unsplash.com/photo-1581092917463-2d50b2b8ef5a?auto=format&fit=crop&w=800&q=80",
+      details: "ITI/Diploma · 3+ years exp",
     },
   ];
 
@@ -88,12 +88,12 @@ export default function JobsSection() {
       viewport={{ once: true }}
       className="p-6 bg-white rounded-xl shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
     >
-      <img 
-        src={job.img} 
-        alt={job.title} 
+      <img
+        src={job.img}
+        alt={job.title}
         className="w-full h-40 object-cover rounded-lg mb-4"
       />
-      <h3 className="text-lg font-semibold text-gray-800">{job.title}</h3>
+      <h3 className="text-lg font-semibold text-gray-900">{job.title}</h3>
       <p className="text-gray-600 text-sm mt-1">{job.location}</p>
       <p className="text-gray-500 text-sm mt-1">{job.details}</p>
       <p className="text-blue-600 font-medium mt-2">{job.salary}</p>
@@ -104,7 +104,10 @@ export default function JobsSection() {
   );
 
   return (
-    <section id="jobs" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section
+      id="jobs"
+      className="py-20 bg-gradient-to-br from-blue-50 via-white to-blue-50"
+    >
       <div className="max-w-6xl mx-auto px-6 lg:px-20">
         {/* Section Title */}
         <motion.h2
@@ -123,7 +126,7 @@ export default function JobsSection() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-2xl font-semibold text-gray-700 mb-6 border-l-4 border-blue-600 pl-3"
+          className="text-2xl font-semibold text-gray-800 mb-6 border-l-4 border-blue-600 pl-3"
         >
           Dubai (Local)
         </motion.h3>
@@ -140,7 +143,7 @@ export default function JobsSection() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-2xl font-semibold text-gray-700 mb-6 border-l-4 border-green-600 pl-3"
+          className="text-2xl font-semibold text-gray-800 mb-6 border-l-4 border-green-600 pl-3"
         >
           Overseas
         </motion.h3>

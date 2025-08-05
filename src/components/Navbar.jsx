@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [language, setLanguage] = useState("en"); // 👈 default English
-  const [scrollProgress, setScrollProgress] = useState(0); // 👈 progress state
+  const [language, setLanguage] = useState("en"); // default English
+  const [scrollProgress, setScrollProgress] = useState(0); //  progress state
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +36,7 @@ export default function Navbar() {
     { name: "contact", type: "section" },
   ];
 
-  // 🔤 Translations
+  //  Translations
   const translations = {
     en: {
       home: "Home",
@@ -60,7 +60,7 @@ export default function Navbar() {
 
   return (
     <>
-      {/* 🔵 Scroll Progress Bar */}
+      {/*  Scroll Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 z-[60]">
         <div
           className="h-1 bg-blue-500 transition-all duration-150"
@@ -75,12 +75,12 @@ export default function Navbar() {
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled ? "bg-white shadow-md text-gray-800" : "bg-transparent text-white"
         }`}
-        style={{ marginTop: "4px" }} // 👈 so progress bar visible
+        style={{ marginTop: "4px" }} //  so progress bar visible
       >
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <img src="/images/hero.jpeg" alt="KonnectHRC" className="h-10 w-auto" />
+            <img src="https://konnectthrc.com/wp-content/uploads/2023/03/site.png?w=300&h=174" alt="KonnectHRC" className="h-10 w-auto" />
             <span
               className={`text-2xl font-bold ${
                 scrolled ? "text-blue-600" : "text-blue-400"
@@ -140,7 +140,7 @@ export default function Navbar() {
               </li>
             ))}
 
-            {/* 🌐 Language Switcher */}
+            {/*  Language Switcher */}
             <li>
               <button
                 onClick={() => setLanguage(language === "en" ? "ar" : "en")}
@@ -232,7 +232,7 @@ export default function Navbar() {
                 )
               )}
 
-              {/* 🌐 Language Switcher (Mobile) */}
+              {/*  Language Switcher (Mobile) */}
               <button
                 onClick={() => setLanguage(language === "en" ? "ar" : "en")}
                 className="w-full px-3 py-2 border rounded-md hover:bg-blue-100 transition"

@@ -12,7 +12,7 @@ export default function Reveal({ children, direction = "up", delay = 0 }) {
       y: 0,
       x: 0,
       transition: {
-        type: "spring",   // 👈 spring animation
+        type: "spring",   // spring animation
         stiffness: 70,    // natural speed
         damping: 18,      // smooth stop
         delay,

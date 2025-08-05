@@ -20,7 +20,7 @@ import Israel from "./components/Israel";
 // Full page imports
 import AboutPage from "./pages/AboutPage"; 
 import CompanyProfilePage from "./pages/CompanyProfilePage";
-import ServicesPage from "./pages/ServicesPage";   // 👈 Added Services Full Page
+import ServicesPage from "./pages/ServicesPage";   //  Added Services Full Page
 
 function App() {
   return (
@@ -82,7 +82,7 @@ function App() {
         {/* Company Profile Full Page */}
         <Route path="/company-profile" element={<CompanyProfilePage />} />
 
-        {/* Services Full Page 👈 */}
+        {/* Services Full Page  */}
         <Route path="/services" element={<ServicesPage />} />
 
         {/* Israel Full Page */}

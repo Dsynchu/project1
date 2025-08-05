@@ -13,13 +13,13 @@
 //           className="text-center md:text-left"
 //         >
 //           <img
-//             src="/images/ceo.jpg"  // 👈 yaha apne CEO photo ka path daal
+//             src="/images/ceo.jpg"  //  yaha apne CEO photo ka path daal
 //             alt="CEO"
 //             className="w-64 h-80 object-cover rounded-2xl shadow-lg mx-auto md:mx-0"
 //           />
 
 //           <img
-//             src="/images/signature.png" // 👈 yaha CEO signature image ka path daal
+//             src="/images/signature.png" //  yaha CEO signature image ka path daal
 //             alt="CEO Signature"
 //             className="w-40 mt-6 mx-auto md:mx-0"
 //           />

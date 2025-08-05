@@ -14,7 +14,7 @@ html {
   background: white;
 }
 
-/* 🔥 Gradient Animation */
+/* Gradient Animation ko ho */
 @keyframes gradient-x {
   0% {
     background-position: 0% 50%;

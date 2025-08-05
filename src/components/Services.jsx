@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function ServicesSection() {
   const services = [
     "Job design & candidate profiling",
@@ -6,6 +8,7 @@ export default function ServicesSection() {
     "Allocate right candidate to right job",
     "Improve hiring quality & reduce cost",
   ];
+
   const sectors = [
     "Industrial & Engineering",
     "IT & Telecom",
@@ -16,45 +19,87 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section id="services" className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
-        <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
-          Our Services
-        </h2>
+    <section
+      id="services"
+      className="relative py-20 animate-gradient-x"
+      style={{
+        background:
+          "linear-gradient(135deg, #dbeafe, #bfdbfe, #a5f3fc, #e0e7ff)",
+        backgroundSize: "400% 400%",
+      }}
+    >
+      {/* overlay for smoothness */}
+      <div className="absolute inset-0 bg-white/50 backdrop-blur-sm"></div>
+
+      <div className="relative max-w-6xl mx-auto px-6 md:px-12 lg:px-20 z-10">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-12 tracking-tight"
+        >
+          Our <span className="text-blue-600">Services</span>
+        </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div>
-            <p className="text-gray-600 leading-relaxed mb-6">
-              We deliver professional HR consultancy and recruitment services
-              across industries. Our approach ensures efficiency, quality, and
-              cost-effectiveness in talent acquisition.
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="bg-white/70 backdrop-blur-md p-8 rounded-2xl shadow-lg"
+          >
+            <p className="text-gray-700 leading-relaxed mb-6 text-lg md:text-xl font-medium">
+              We deliver professional{" "}
+              <span className="text-blue-600 font-semibold">
+                HR consultancy
+              </span>{" "}
+              and recruitment services across industries. Our approach ensures{" "}
+              <span className="text-indigo-600 font-semibold">
+                efficiency, quality, and cost‑effectiveness
+              </span>{" "}
+              in talent acquisition.
             </p>
-            <ul className="list-disc list-inside text-gray-700 space-y-2 mb-6">
+
+            <ul className="space-y-4 mb-8">
               {services.map((s, i) => (
-                <li key={i}>{s}</li>
+                <li
+                  key={i}
+                  className="flex items-start space-x-3 text-gray-800 font-medium text-base md:text-lg"
+                >
+                  <span className="mt-2 w-2 h-2 bg-blue-500 rounded-full"></span>
+                  <span>{s}</span>
+                </li>
               ))}
             </ul>
-            <h3 className="text-xl font-semibold mb-4 text-gray-800">
+
+            <h3 className="text-2xl font-semibold mb-4 text-gray-900">
               Industries We Serve
             </h3>
             <ul className="flex flex-wrap gap-3">
               {sectors.map((sec, i) => (
-                <span
+                <motion.span
                   key={i}
-                  className="bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm"
+                  whileHover={{ scale: 1.1 }}
+                  className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-2 rounded-full text-sm md:text-base font-medium shadow-md cursor-default transition"
                 >
                   {sec}
-                </span>
+                </motion.span>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Right Image */}
-          <img
+          <motion.img
             src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
             alt="HR Services"
-            className="rounded-2xl shadow-lg"
+            className="rounded-2xl shadow-2xl border-4 border-white"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
           />
         </div>
       </div>

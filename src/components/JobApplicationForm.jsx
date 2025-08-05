@@ -22,7 +22,7 @@ export default function JobApplicationForm({ isOpen, onClose, job }) {
     e.preventDefault();
     console.log("Applied for:", job?.title);
     console.log("Form Data:", formData);
-    alert(`✅ Application submitted for ${job?.title}`);
+    alert(` Application submitted for ${job?.title}`);
     onClose();
   };
 

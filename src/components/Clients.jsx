@@ -1,80 +1,131 @@
 import { motion } from "framer-motion";
 
 const clients = [
-
-    {
-    name: "Cohen & Gresser (Dubai Office)",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Generic_law_firm_logo.svg" // Placeholder; download actual from cohengroup.net or cohen-gresser.com
-  },
   {
-    name: "BCC International Group",
-    logo: "https://www.bccgroupinternational.com/assets/images/bcc-logo-all/bcc-international-gold.svg" // Use your local asset; ensure path is correct
+    name: "Al Maha Catering",
+    logo: "https://www.almahacatering.ae/wp-content/uploads/2023/01/ALMAHACATERING-VERTICAL-WHITE.png",
   },
   {
     name: "Dubai Investment Limited",
-    logo: "https://www.dubaiinvestments.com/media/iqif5wdj/di-logo.png" // Valid Wikimedia URL for Dubai-based company
+    logo: "https://www.dubaiinvestments.com/media/iqif5wdj/di-logo.png",
   },
   {
-    name: "Al Maha Catering",
-    logo: "https://www.almahacatering.ae/wp-content/uploads/2023/01/ALMAHACATERING-VERTICAL-WHITE.png" // Valid Wikimedia URL for Dubai-based company
+    name: "BCC International Group",
+    logo: "https://www.bccgroupinternational.com/assets/images/bcc-logo-all/bcc-international-gold.svg",
   },
   {
-    name: "Al-futtaim",
-    logo: "https://innovationuae.com/wp-content/uploads/2021/01/al-futtaim-200.png" // Placeholder; download actual from khansaheb.com
+    name: "World Star Holding",
+    logo: "https://www.manpowersupply.ae/wp-content/uploads/2022/03/LOGO-H-WSH-1.png",
   },
-  
-  { name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
-  { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" },
-  { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" },
-  { name: "Infosys", logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Infosys_logo.svg" },
-  { name: "TCS", logo: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Tata_Consultancy_Services_Logo.svg" },
+  {
+    name: "Al Jasar HR Consultancy",
+    logo: "https://aljasarhr.com/image/logo.png",
+  },
+  {
+    name: "AYADI",
+    logo: "https://ayadi.ae/wp-content/uploads/2023/10/cropped-Gold-PNG2-2048x584.png",
+  },
+  {
+    name: "Smooth Manpower",
+    logo: "https://www.smoothmanpower.com/wp-content/uploads/2023/08/smooth_website.png",
+  },
+  {
+    name: "MBM Gulf Electrotechnical LLC",
+    logo: "https://www.mbmdubai.com/wp-content/uploads/2018/01/logo-m-1.png",
+  },
+  {
+    name: "MKO Facilities Management",
+    logo: "https://mkofm.com/wp-content/uploads/2024/01/mkofm-logo.webp",
+  },
+  {
+    name: "Contech",
+    logo: "https://static.wixstatic.com/media/aa2373_44cab5bd482b4aac92c932c129a84eae~mv2.png/v1/fill/w_594,h_220,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Contech%20Dubai%20-%20UAE.png",
+  },
+  {
+    name: "Maico Gulf",
+    logo: "https://maicogulf.com/wp-content/uploads/2020/06/logo-icon.png",
+  },
+  {
+    name: "Vertis Electromechanical Services LLC",
+    logo: "https://www.vertisservices.com/images/logo.jpg",
+  },
+  {
+    name: "Ontime Group",
+    logo: "https://www.ontimegroup.com/logo-white.png",
+  },
+  {
+    name: "Hira Industry",
+    logo: "https://rhira.com/wp-content/uploads/2019/03/rhira-logo.png",
+  },
+  {
+    name: "Dussmann Facilities Management",
+    logo: "https://www.dussmann.ae/fileadmin/ds/templates/img/dussmann_logo-w.svg",
+  },
+  {
+    name: "Granite Construction",
+    logo: "https://www.graniteconstruction.com/themes/custom/granite2019/public/images/logo.svg",
+  },
+  {
+    name: "Innovation UAE",
+    logo: "https://innovationuae.com/wp-content/uploads/2020/12/about-banner.jpg",
+  },
 ];
 
-export default function Clients() {
+function LogoRow({ items, reverse = false, speed = 40 }) {
   return (
-    <section id="clients" className="py-16 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-12">
-          Trusted By Leading Companies
+    <div className="overflow-hidden w-full">
+      <motion.div
+        className="flex gap-12 py-6"
+        animate={{ x: reverse ? ["0%", "-100%"] : ["-100%", "0%"] }}
+        transition={{
+          repeat: Infinity,
+          duration: speed,
+          ease: "linear",
+        }}
+      >
+        {[...items, ...items].map((client, i) => (
+          <div
+            key={i}
+            className="flex flex-col items-center justify-center min-w-[160px]"
+          >
+            <img
+              src={client.logo}
+              alt={client.name}
+              className="h-16 object-contain mb-3"
+            />
+            <p className="text-sm md:text-base font-semibold text-gray-700 hover:text-blue-600 transition-colors duration-300 text-center">
+              {client.name}
+            </p>
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
+
+export default function Clients() {
+  const row1 = clients.slice(0, 5);
+  const row2 = clients.slice(5, 9);
+  const row3 = clients.slice(9, 13);
+  const row4 = clients.slice(13, 17);
+
+  return (
+    <section
+      id="clients"
+      className="relative py-20 bg-gradient-to-r from-gray-50 via-blue-50 to-gray-50"
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-20">
+        <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
+          Our Clients & Partners
         </h2>
 
-        <div className="overflow-hidden relative">
-          <motion.div
-            className="flex space-x-16"
-            animate={{ x: ["0%", "-100%"] }}
-            transition={{
-              repeat: Infinity,
-              duration: 20,
-              ease: "linear",
-            }}
-          >
-            {clients.map((client, i) => (
-              <img
-                key={i}
-                src={client.logo}
-                alt={client.name}
-                className="h-12 md:h-16 object-contain grayscale hover:grayscale-0 transition"
-              />
-            ))}
-
-            {/* duplicate for seamless loop */}
-            {clients.map((client, i) => (
-              <img
-                key={`dup-${i}`}
-                src={client.logo}
-                alt={client.name}
-                className="h-12 md:h-16 object-contain grayscale hover:grayscale-0 transition"
-              />
-            ))}
-          </motion.div>
+        <div className="space-y-8">
+          <LogoRow items={row1} reverse={false} />
+          <LogoRow items={row2} reverse={true} />
+          <LogoRow items={row3} reverse={false} />
+          <LogoRow items={row4} reverse={true} />
         </div>
       </div>
     </section>
   );
 }
-
-
-
-
-
-
