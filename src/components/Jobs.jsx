@@ -86,18 +86,18 @@ export default function JobsSection() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className="p-6 bg-white rounded-xl shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
+      className="p-6 bg-gray-900/70 backdrop-blur-md rounded-xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 border border-gray-700"
     >
       <img
         src={job.img}
         alt={job.title}
         className="w-full h-40 object-cover rounded-lg mb-4"
       />
-      <h3 className="text-lg font-semibold text-gray-900">{job.title}</h3>
-      <p className="text-gray-600 text-sm mt-1">{job.location}</p>
+      <h3 className="text-lg font-semibold text-white">{job.title}</h3>
+      <p className="text-gray-400 text-sm mt-1">{job.location}</p>
       <p className="text-gray-500 text-sm mt-1">{job.details}</p>
-      <p className="text-blue-600 font-medium mt-2">{job.salary}</p>
-      <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+      <p className="text-blue-400 font-medium mt-2">{job.salary}</p>
+      <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 hover:shadow-lg transition">
         Apply Now
       </button>
     </motion.div>
@@ -106,16 +106,24 @@ export default function JobsSection() {
   return (
     <section
       id="jobs"
-      className="py-20 bg-gradient-to-br from-blue-50 via-white to-blue-50"
+      className="py-20 relative"
+      style={{
+        background:
+          "linear-gradient(135deg, #0f172a, #1e293b, #334155, #1e293b)",
+        backgroundSize: "400% 400%",
+      }}
     >
-      <div className="max-w-6xl mx-auto px-6 lg:px-20">
+      {/* Overlay for depth */}
+      <div className="absolute inset-0 bg-black/40"></div>
+
+      <div className="relative max-w-6xl mx-auto px-6 lg:px-20 z-10">
         {/* Section Title */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold text-center text-gray-800 mb-12"
+          className="text-4xl font-bold text-center text-white mb-12"
         >
           Current Job Openings
         </motion.h2>
@@ -126,7 +134,7 @@ export default function JobsSection() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-2xl font-semibold text-gray-800 mb-6 border-l-4 border-blue-600 pl-3"
+          className="text-2xl font-semibold text-blue-400 mb-6 border-l-4 border-blue-500 pl-3"
         >
           Dubai (Local)
         </motion.h3>
@@ -143,7 +151,7 @@ export default function JobsSection() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-2xl font-semibold text-gray-800 mb-6 border-l-4 border-green-600 pl-3"
+          className="text-2xl font-semibold text-green-400 mb-6 border-l-4 border-green-500 pl-3"
         >
           Overseas
         </motion.h3>

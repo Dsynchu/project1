@@ -24,12 +24,12 @@ export default function ServicesSection() {
       className="relative py-20 animate-gradient-x"
       style={{
         background:
-          "linear-gradient(135deg, #dbeafe, #bfdbfe, #a5f3fc, #e0e7ff)",
+          "linear-gradient(135deg, #0f172a, #1e293b, #334155, #1e293b)",
         backgroundSize: "400% 400%",
       }}
     >
-      {/* overlay for smoothness */}
-      <div className="absolute inset-0 bg-white/50 backdrop-blur-sm"></div>
+      {/* subtle overlay for smooth contrast */}
+      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
 
       <div className="relative max-w-6xl mx-auto px-6 md:px-12 lg:px-20 z-10">
         <motion.h2
@@ -37,9 +37,9 @@ export default function ServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-12 tracking-tight"
+          className="text-4xl md:text-5xl font-extrabold text-center text-white mb-12 tracking-tight"
         >
-          Our <span className="text-blue-600">Services</span>
+          Our <span className="text-blue-400">Services</span>
         </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -49,15 +49,15 @@ export default function ServicesSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-white/70 backdrop-blur-md p-8 rounded-2xl shadow-lg"
+            className="bg-gray-900/70 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-gray-700"
           >
-            <p className="text-gray-700 leading-relaxed mb-6 text-lg md:text-xl font-medium">
+            <p className="text-gray-300 leading-relaxed mb-6 text-lg md:text-xl font-medium">
               We deliver professional{" "}
-              <span className="text-blue-600 font-semibold">
+              <span className="text-blue-400 font-semibold">
                 HR consultancy
               </span>{" "}
               and recruitment services across industries. Our approach ensures{" "}
-              <span className="text-indigo-600 font-semibold">
+              <span className="text-indigo-400 font-semibold">
                 efficiency, quality, and cost‑effectiveness
               </span>{" "}
               in talent acquisition.
@@ -67,7 +67,7 @@ export default function ServicesSection() {
               {services.map((s, i) => (
                 <li
                   key={i}
-                  className="flex items-start space-x-3 text-gray-800 font-medium text-base md:text-lg"
+                  className="flex items-start space-x-3 text-gray-200 font-medium text-base md:text-lg"
                 >
                   <span className="mt-2 w-2 h-2 bg-blue-500 rounded-full"></span>
                   <span>{s}</span>
@@ -75,7 +75,7 @@ export default function ServicesSection() {
               ))}
             </ul>
 
-            <h3 className="text-2xl font-semibold mb-4 text-gray-900">
+            <h3 className="text-2xl font-semibold mb-4 text-white">
               Industries We Serve
             </h3>
             <ul className="flex flex-wrap gap-3">
@@ -83,7 +83,7 @@ export default function ServicesSection() {
                 <motion.span
                   key={i}
                   whileHover={{ scale: 1.1 }}
-                  className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-2 rounded-full text-sm md:text-base font-medium shadow-md cursor-default transition"
+                  className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-5 py-2 rounded-full text-sm md:text-base font-medium shadow-md cursor-default transition"
                 >
                   {sec}
                 </motion.span>
@@ -95,7 +95,7 @@ export default function ServicesSection() {
           <motion.img
             src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
             alt="HR Services"
-            className="rounded-2xl shadow-2xl border-4 border-white"
+            className="rounded-2xl shadow-2xl border-4 border-gray-700"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}

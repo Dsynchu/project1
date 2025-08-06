@@ -58,7 +58,12 @@ export default function Newsletter() {
           <input
             type="email"
             placeholder="Enter your email address"
-            className="px-5 py-3 rounded-lg text-gray-900 w-full md:w-2/3 focus:outline-none border focus:ring-2 focus:ring-blue-400 transition"
+            className="px-5 py-3 rounded-lg w-full md:w-2/3
+                       text-gray-200 placeholder-white
+                       bg-white/10 backdrop-blur-md
+                       border border-white/20
+                       focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400
+                       transition"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required

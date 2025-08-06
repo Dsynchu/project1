@@ -35,19 +35,18 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="relative py-20 animate-gradient-x"
+      className="relative py-20"
       style={{
-        background:
-          "linear-gradient(135deg, #f0f9ff, #e0e7ff, #fdf2f8, #e0f2fe)",
+        background: "linear-gradient(135deg, #0f172a, #1e293b, #334155, #1e293b)",
         backgroundSize: "400% 400%",
       }}
     >
-      {/* Overlay blur for smoothness */}
-      <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
+      {/* Overlay for depth */}
+      <div className="absolute inset-0 bg-black/40"></div>
 
       <div className="relative max-w-5xl mx-auto px-6 md:px-12 z-10">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-14 drop-shadow">
-          ❓ Frequently Asked <span className="text-blue-600">Questions</span>
+        <h2 className="text-4xl md:text-5xl font-extrabold text-center text-white mb-14 drop-shadow-lg">
+          ❓ Frequently Asked <span className="text-blue-400">Questions</span>
         </h2>
 
         <div className="space-y-6">
@@ -58,17 +57,17 @@ export default function FAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="bg-white/70 backdrop-blur-lg shadow-lg rounded-2xl p-6 cursor-pointer border border-transparent hover:border-blue-500 hover:shadow-2xl transition-all"
+              className="bg-gray-800/70 backdrop-blur-lg shadow-lg rounded-2xl p-6 cursor-pointer border border-gray-700 hover:border-blue-500 hover:shadow-blue-500/30 transition-all"
               onClick={() => toggleFAQ(index)}
             >
               <div className="flex justify-between items-center">
-                <h3 className="text-lg md:text-xl font-semibold text-gray-800">
+                <h3 className="text-lg md:text-xl font-semibold text-white">
                   {faq.question}
                 </h3>
                 {openIndex === index ? (
-                  <ChevronUp className="text-blue-600" />
+                  <ChevronUp className="text-blue-400" />
                 ) : (
-                  <ChevronDown className="text-gray-500" />
+                  <ChevronDown className="text-gray-400" />
                 )}
               </div>
 
@@ -80,7 +79,7 @@ export default function FAQ() {
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.4 }}
-                    className="mt-4 text-gray-700 leading-relaxed text-base"
+                    className="mt-4 text-gray-300 leading-relaxed text-base"
                   >
                     {faq.answer}
                   </motion.p>

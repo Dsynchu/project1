@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const jobs = [
   { id: 1, title: "Frontend Developer", location: "Bangalore", type: "Full-time" },
@@ -21,20 +22,25 @@ export default function JobFilter() {
   return (
     <section
       id="job-filter"
-      className="relative py-20 animate-gradient-x"
+      className="relative py-20"
       style={{
-        background:
-          "linear-gradient(135deg, #f0f9ff, #e0e7ff, #fae8ff, #e0f2fe)",
+        background: "linear-gradient(135deg, #0f172a, #1e293b, #334155, #1e293b)",
         backgroundSize: "400% 400%",
       }}
     >
-      {/* Overlay for blur */}
-      <div className="absolute inset-0 bg-white/40 backdrop-blur-sm"></div>
+      {/* Dark overlay for depth */}
+      <div className="absolute inset-0 bg-black/40"></div>
 
       <div className="relative max-w-6xl mx-auto px-6 lg:px-20 z-10">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-12 drop-shadow">
-          Find Your <span className="text-blue-600">Dream Job</span>
-        </h2>
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-5xl font-extrabold text-center text-white mb-12 drop-shadow-lg"
+        >
+          Find Your <span className="text-blue-400">Dream Job</span>
+        </motion.h2>
 
         {/* Filters */}
         <div className="flex flex-col md:flex-row md:items-center md:space-x-6 gap-4 mb-12">
@@ -43,12 +49,12 @@ export default function JobFilter() {
             placeholder="🔍 Search by role..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full md:w-1/2 px-4 py-3 rounded-lg bg-white/70 backdrop-blur-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 shadow-md"
+            className="w-full md:w-1/2 px-4 py-3 rounded-lg bg-gray-900/60 backdrop-blur-md border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400 shadow-md transition"
           />
           <select
             value={location}
             onChange={(e) => setLocation(e.target.value)}
-            className="w-full md:w-1/3 px-4 py-3 rounded-lg bg-white/70 backdrop-blur-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 shadow-md"
+            className="w-full md:w-1/3 px-4 py-3 rounded-lg bg-gray-900/60 backdrop-blur-md border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white shadow-md transition"
           >
             <option>All</option>
             <option>Bangalore</option>
@@ -62,21 +68,25 @@ export default function JobFilter() {
         {/* Job List */}
         <div className="grid md:grid-cols-2 gap-8">
           {filteredJobs.length > 0 ? (
-            filteredJobs.map((job) => (
-              <div
+            filteredJobs.map((job, i) => (
+              <motion.div
                 key={job.id}
-                className="p-6 bg-white/80 backdrop-blur-lg rounded-xl shadow-lg border border-transparent hover:border-blue-500 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="p-6 bg-gray-800/70 backdrop-blur-md rounded-xl shadow-lg border border-gray-700 hover:border-blue-500 hover:shadow-blue-500/30 hover:-translate-y-2 transition-all duration-300"
               >
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-bold text-white mb-2">
                   {job.title}
                 </h3>
-                <p className="text-gray-600 font-medium">
-                   {job.location} • {job.type}
+                <p className="text-gray-300 font-medium">
+                  {job.location} • {job.type}
                 </p>
-              </div>
+              </motion.div>
             ))
           ) : (
-            <p className="text-center text-gray-600 col-span-2 font-medium">
+            <p className="text-center text-gray-400 col-span-2 font-medium">
               No jobs found. Try another search.
             </p>
           )}

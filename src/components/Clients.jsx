@@ -91,9 +91,9 @@ function LogoRow({ items, reverse = false, speed = 40 }) {
             <img
               src={client.logo}
               alt={client.name}
-              className="h-16 object-contain mb-3"
+              className="h-16 object-contain mb-3 drop-shadow-lg hover:scale-110 hover:drop-shadow-[0_0_15px_#3b82f6] transition-all duration-300"
             />
-            <p className="text-sm md:text-base font-semibold text-gray-700 hover:text-blue-600 transition-colors duration-300 text-center">
+            <p className="text-sm md:text-base font-semibold text-gray-300 hover:text-blue-400 transition-colors duration-300 text-center">
               {client.name}
             </p>
           </div>
@@ -112,11 +112,19 @@ export default function Clients() {
   return (
     <section
       id="clients"
-      className="relative py-20 bg-gradient-to-r from-gray-50 via-blue-50 to-gray-50"
+      className="relative py-20"
+      style={{
+        background:
+          "linear-gradient(135deg, #0f172a, #1e1b4b, #111827, #0f172a)",
+        backgroundSize: "400% 400%",
+      }}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-20">
-        <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
-          Our Clients & Partners
+      {/* Animated BG Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-transparent animate-pulse"></div>
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-20 z-10">
+        <h2 className="text-4xl font-bold text-center text-white mb-12 drop-shadow-lg">
+          Our Clients & <span className="text-blue-400">Partners</span>
         </h2>
 
         <div className="space-y-8">
@@ -126,6 +134,10 @@ export default function Clients() {
           <LogoRow items={row4} reverse={true} />
         </div>
       </div>
+
+      {/* Edge Glow Effects */}
+      <div className="absolute top-0 left-0 w-20 h-full bg-gradient-to-r from-black to-transparent pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-black to-transparent pointer-events-none"></div>
     </section>
   );
 }

@@ -3,21 +3,20 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [language, setLanguage] = useState("en"); // default English
-  const [scrollProgress, setScrollProgress] = useState(0); //  progress state
+  const [language, setLanguage] = useState("en");
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      // navbar shadow toggle
       if (window.scrollY > 50) setScrolled(true);
       else setScrolled(false);
 
-      // progress calculation
       const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
       const progress = (scrollTop / docHeight) * 100;
       setScrollProgress(progress);
     };
@@ -36,7 +35,6 @@ export default function Navbar() {
     { name: "contact", type: "section" },
   ];
 
-  //  Translations
   const translations = {
     en: {
       home: "Home",
@@ -60,8 +58,8 @@ export default function Navbar() {
 
   return (
     <>
-      {/*  Scroll Progress Bar */}
-      <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 z-[60]">
+      {/* Scroll Progress Bar */}
+      <div className="fixed top-0 left-0 w-full h-1 bg-gray-800 z-[60]">
         <div
           className="h-1 bg-blue-500 transition-all duration-150"
           style={{ width: `${scrollProgress}%` }}
@@ -69,24 +67,30 @@ export default function Navbar() {
       </div>
 
       <motion.nav
-        initial={{ y: -80 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut", type: "spring", stiffness: 80 }}
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? "bg-white shadow-md text-gray-800" : "bg-transparent text-white"
+          scrolled
+            ? "bg-gray-900/90 backdrop-blur-md shadow-md text-white"
+            : "bg-transparent text-white"
         }`}
-        style={{ marginTop: "4px" }} //  so progress bar visible
+        style={{ marginTop: "4px" }}
       >
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <img src="https://konnectthrc.com/wp-content/uploads/2023/03/site.png?w=300&h=174" alt="KonnectHRC" className="h-10 w-auto" />
+            <img
+              src="https://konnectthrc.com/wp-content/uploads/2023/03/site.png?w=300&h=174"
+              alt="KonnectHRC"
+              className="h-10 w-auto"
+            />
             <span
               className={`text-2xl font-bold ${
-                scrolled ? "text-blue-600" : "text-blue-400"
+                scrolled ? "text-blue-400" : "text-blue-300"
               }`}
             >
-             Konnect talent HR consultancy
+              Konnect Talent HR Consultancy
             </span>
           </Link>
 
@@ -96,55 +100,55 @@ export default function Navbar() {
               <li key={item.name}>
                 {item.name === "home" ? (
                   <Link to="/" className="relative group">
-                    <span className="hover:text-blue-500 transition">
+                    <span className="hover:text-blue-400 transition">
                       {translations[language].home}
                     </span>
-                    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-500 transition-all group-hover:w-full"></span>
+                    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-400 transition-all group-hover:w-full"></span>
                   </Link>
                 ) : item.name === "about" ? (
                   <Link to="/about" className="relative group">
-                    <span className="hover:text-blue-500 transition">
+                    <span className="hover:text-blue-400 transition">
                       {translations[language].about}
                     </span>
-                    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-500 transition-all group-hover:w-full"></span>
+                    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-400 transition-all group-hover:w-full"></span>
                   </Link>
                 ) : item.name === "company-profile" ? (
                   <Link to="/company-profile" className="relative group">
-                    <span className="hover:text-blue-500 transition">
+                    <span className="hover:text-blue-400 transition">
                       {translations[language].company}
                     </span>
-                    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-500 transition-all group-hover:w-full"></span>
+                    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-400 transition-all group-hover:w-full"></span>
                   </Link>
                 ) : item.name === "services" ? (
                   <Link to="/services" className="relative group">
-                    <span className="hover:text-blue-500 transition">
+                    <span className="hover:text-blue-400 transition">
                       {translations[language].services}
                     </span>
-                    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-500 transition-all group-hover:w-full"></span>
+                    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-400 transition-all group-hover:w-full"></span>
                   </Link>
                 ) : item.name === "israel" ? (
                   <Link to="/israel" className="relative group">
-                    <span className="hover:text-blue-500 transition">
+                    <span className="hover:text-blue-400 transition">
                       {translations[language].israel}
                     </span>
-                    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-500 transition-all group-hover:w-full"></span>
+                    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-400 transition-all group-hover:w-full"></span>
                   </Link>
                 ) : (
                   <a href={`#${item.name}`} className="relative group">
-                    <span className="hover:text-blue-500 transition">
+                    <span className="hover:text-blue-400 transition">
                       {translations[language][item.name]}
                     </span>
-                    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-500 transition-all group-hover:w-full"></span>
+                    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-400 transition-all group-hover:w-full"></span>
                   </a>
                 )}
               </li>
             ))}
 
-            {/*  Language Switcher */}
+            {/* Language Switcher */}
             <li>
               <button
                 onClick={() => setLanguage(language === "en" ? "ar" : "en")}
-                className="ml-6 px-3 py-1 border rounded-md hover:bg-blue-100 transition"
+                className="ml-6 px-3 py-1 border border-blue-400 rounded-md hover:bg-blue-500/20 transition"
               >
                 {language === "en" ? "العربية" : "English"}
               </button>
@@ -171,7 +175,7 @@ export default function Navbar() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
               className={`md:hidden px-6 py-4 space-y-4 ${
-                scrolled ? "bg-white text-gray-800" : "bg-gray-900 text-white"
+                scrolled ? "bg-gray-900/95 text-white" : "bg-gray-800/95 text-white"
               }`}
             >
               {menuItems.map((item) =>
@@ -179,7 +183,7 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     to="/"
-                    className="block hover:text-blue-500 transition"
+                    className="block hover:text-blue-400 transition"
                     onClick={() => setIsOpen(false)}
                   >
                     {translations[language].home}
@@ -188,7 +192,7 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     to="/about"
-                    className="block hover:text-blue-500 transition"
+                    className="block hover:text-blue-400 transition"
                     onClick={() => setIsOpen(false)}
                   >
                     {translations[language].about}
@@ -197,7 +201,7 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     to="/company-profile"
-                    className="block hover:text-blue-500 transition"
+                    className="block hover:text-blue-400 transition"
                     onClick={() => setIsOpen(false)}
                   >
                     {translations[language].company}
@@ -206,7 +210,7 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     to="/services"
-                    className="block hover:text-blue-500 transition"
+                    className="block hover:text-blue-400 transition"
                     onClick={() => setIsOpen(false)}
                   >
                     {translations[language].services}
@@ -215,7 +219,7 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     to="/israel"
-                    className="block hover:text-blue-500 transition"
+                    className="block hover:text-blue-400 transition"
                     onClick={() => setIsOpen(false)}
                   >
                     {translations[language].israel}
@@ -224,7 +228,7 @@ export default function Navbar() {
                   <a
                     key={item.name}
                     href={`#${item.name}`}
-                    className="block hover:text-blue-500 transition"
+                    className="block hover:text-blue-400 transition"
                     onClick={() => setIsOpen(false)}
                   >
                     {translations[language][item.name]}
@@ -232,10 +236,10 @@ export default function Navbar() {
                 )
               )}
 
-              {/*  Language Switcher (Mobile) */}
+              {/* Language Switcher (Mobile) */}
               <button
                 onClick={() => setLanguage(language === "en" ? "ar" : "en")}
-                className="w-full px-3 py-2 border rounded-md hover:bg-blue-100 transition"
+                className="w-full px-3 py-2 border border-blue-400 rounded-md hover:bg-blue-500/20 transition"
               >
                 {language === "en" ? "العربية" : "English"}
               </button>
@@ -244,5 +248,37 @@ export default function Navbar() {
         </AnimatePresence>
       </motion.nav>
     </>
+  );
+}
+
+export default function HeroWithNavbar() {
+  return (
+    <section className="relative w-full h-screen">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba"
+          alt="Dubai Skyline"
+          className="w-full h-full object-cover"
+        />
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/60"></div>
+      </div>
+
+      {/* Navbar on top of image */}
+      <Navbar />
+
+      {/* Hero Content */}
+      <div className="relative z-10 flex items-center justify-center h-full text-center text-white">
+        <div>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            Welcome to <span className="text-blue-400">KonnectHRC</span>
+          </h1>
+          <p className="text-lg md:text-2xl max-w-2xl mx-auto">
+            Your trusted partner for recruitment in Dubai, Abu Dhabi & GCC.
+          </p>
+        </div>
+      </div>
+    </section>
   );
 }

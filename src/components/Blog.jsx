@@ -100,21 +100,31 @@ export default function Blog() {
   }, []);
 
   return (
-    <section id="blog" className="py-20 bg-gray-50 relative">
-      <div className="max-w-6xl mx-auto px-6 lg:px-20">
-        <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
-          Insights & Updates
+    <section
+      id="blog"
+      className="py-20 relative"
+      style={{
+        background:
+          "linear-gradient(135deg, #0f172a, #1e293b, #334155, #1e293b)",
+        backgroundSize: "400% 400%",
+      }}
+    >
+      <div className="max-w-6xl mx-auto px-6 lg:px-20 relative z-10">
+        <h2 className="text-4xl font-bold text-center text-white mb-12 drop-shadow-lg">
+          Insights & <span className="text-blue-400">Updates</span>
         </h2>
 
         {/* Auto-Scrolling Blog Slider */}
         <div
           ref={sliderRef}
-          className="flex gap-6 overflow-x-hidden whitespace-nowrap relative mask-gradient"
+          className="flex gap-6 overflow-x-hidden whitespace-nowrap relative"
         >
           {[...posts, ...posts].map((post, i) => (
             <div
               key={i}
-              className="min-w-[300px] max-w-[300px] bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transform hover:-translate-y-2 transition duration-300"
+              className="min-w-[300px] max-w-[300px] bg-gray-800/80 backdrop-blur-md rounded-xl shadow-md overflow-hidden 
+              hover:shadow-blue-500/30 hover:scale-[1.03] border border-gray-700 hover:border-blue-500 
+              transform transition-all duration-300"
             >
               <img
                 src={post.img}
@@ -122,13 +132,13 @@ export default function Blog() {
                 className="w-full h-40 object-cover"
               />
               <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                <h3 className="text-lg font-semibold text-white mb-2">
                   {post.title}
                 </h3>
-                <p className="text-gray-600 text-sm mb-3">{post.desc}</p>
+                <p className="text-gray-300 text-sm mb-3">{post.desc}</p>
                 <a
                   href={post.link}
-                  className="text-blue-600 font-medium hover:underline"
+                  className="text-blue-400 font-medium hover:underline"
                 >
                   Read More →
                 </a>
@@ -139,8 +149,8 @@ export default function Blog() {
       </div>
 
       {/* Gradient overlay edges */}
-      <div className="absolute top-0 left-0 w-20 h-full bg-gradient-to-r from-gray-50 to-transparent pointer-events-none"></div>
-      <div className="absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-gray-50 to-transparent pointer-events-none"></div>
+      <div className="absolute top-0 left-0 w-20 h-full bg-gradient-to-r from-[#0f172a] to-transparent pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-[#0f172a] to-transparent pointer-events-none"></div>
     </section>
   );
 }
