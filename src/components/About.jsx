@@ -104,63 +104,69 @@ export default function AboutSection() {
         </div>
       </section>
 
-      {/*  CEO Message Section */}
-      <section
-        className="relative py-20 animate-gradient-x"
-        style={{
-          background: "linear-gradient(135deg, #f9fafb, #eef2ff, #e0f2fe)",
-          backgroundSize: "300% 300%",
-        }}
-      >
-        <div className="max-w-6xl mx-auto px-6 lg:px-20 grid md:grid-cols-2 gap-12 items-center relative z-10">
-          {/* Left - CEO */}
+      {/* 🌟 CEO Message Section */}
+      <section className="relative py-20 bg-gradient-to-r from-gray-900 via-black to-gray-950 text-white overflow-hidden">
+        {/* Decorative Blobs */}
+        <div className="absolute top-10 left-10 w-48 h-48 bg-cyan-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl"></div>
+
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-20 grid md:grid-cols-2 gap-12 items-center">
+          {/* CEO Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center md:text-left"
+            className="flex flex-col items-center md:items-start"
           >
-            <img
-              src="/images/ceo.png"
-              alt="CEO"
-              className="w-64 h-80 object-cover rounded-2xl shadow-xl border-4 border-white mx-auto md:mx-0"
-            />
-            <img
-              src="/images/signature.png"
-              alt="CEO Signature"
-              className="w-40 mt-6 mx-auto md:mx-0"
-            />
-            <h3 className="text-2xl font-semibold text-gray-800 mt-4">CEO Message</h3>
+            <div className="relative">
+              <img
+                src="/image/ceo.png" //  replace with actual path
+                alt="CEO"
+                className="w-72 h-96 object-cover rounded-2xl shadow-2xl border-4 border-white/20"
+              />
+              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-tr from-cyan-400 to-purple-500 rounded-full blur-xl opacity-70"></div>
+            </div>
+
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="text-2xl font-bold mt-8 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400"
+            >
+              Mr. [Your CEO ko Naam]
+            </motion.h3>
+            <p className="text-gray-400 mt-1">Founder & CEO, KonnecttHRC</p>
           </motion.div>
 
-          {/* Right - Message */}
+          {/* CEO Message */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
+            className="bg-white/5 backdrop-blur-md p-10 rounded-2xl shadow-xl border border-white/10"
           >
-            <p className="text-gray-700 leading-relaxed text-lg">
-              At <span className="font-bold text-blue-600">KonnectHRC</span>, people are
-              the foundation of success. Our mission has always been to empower
+            <h2 className="text-3xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+              A Message from Our CEO
+            </h2>
+            <p className="text-gray-200 leading-relaxed text-lg">
+              At <span className="font-bold text-yellow-300">KonnectHRC</span>, people are
+              the foundation of every success story. Our mission has always been to empower
               businesses with the right talent while guiding individuals toward meaningful
               careers.
               <br />
               <br />
               Every milestone we achieve is built on{" "}
-              <span className="font-semibold text-indigo-600">integrity</span>,{" "}
-              <span className="font-semibold text-indigo-600">transparency</span>, and{" "}
-              <span className="font-semibold text-indigo-600">excellence</span>. As we
-              grow, our focus remains on creating impactful connections that transform
-              both businesses and lives.
+              <span className="font-semibold text-cyan-400">integrity</span>,{" "}
+              <span className="font-semibold text-purple-400">transparency</span>, and{" "}
+              <span className="font-semibold text-pink-400">excellence</span>. As we grow,
+              our focus remains on creating impactful connections that transform both
+              businesses and lives.
             </p>
           </motion.div>
         </div>
-
-        {/* Decorative Blobs */}
-        <div className="absolute top-10 left-10 w-40 h-40 bg-blue-200 rounded-full blur-3xl opacity-30"></div>
-        <div className="absolute bottom-10 right-10 w-48 h-48 bg-purple-200 rounded-full blur-3xl opacity-30"></div>
       </section>
     </>
   );

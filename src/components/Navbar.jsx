@@ -86,7 +86,7 @@ export default function Navbar() {
                 scrolled ? "text-blue-600" : "text-blue-400"
               }`}
             >
-              Konnect HRC
+             Konnect talent HR consultancy
             </span>
           </Link>
 

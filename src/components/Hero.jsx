@@ -42,7 +42,7 @@ export default function Hero() {
           className="text-4xl md:text-6xl font-extrabold mb-6 drop-shadow-lg"
         >
           Welcome to{" "}
-          <span className="text-blue-400 animate-pulse">KonnectHRC</span>
+          <span className="text-blue-400 animate-pulse">Konnect talent HR consultancy</span>
         </motion.h1>
 
         <motion.p
