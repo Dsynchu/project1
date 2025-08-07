@@ -69,7 +69,12 @@ function Navbar() {
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut", type: "spring", stiffness: 80 }}
+        transition={{
+          duration: 0.8,
+          ease: "easeOut",
+          type: "spring",
+          stiffness: 80,
+        }}
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled
             ? "bg-gray-900/90 backdrop-blur-md shadow-md text-white"
@@ -133,14 +138,21 @@ function Navbar() {
                     </span>
                     <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-400 transition-all group-hover:w-full"></span>
                   </Link>
-                ) : (
-                  <a href={`#${item.name}`} className="relative group">
+                ) : item.name === "jobs" ? (
+                  <Link to="/jobs" className="relative group">
                     <span className="hover:text-blue-400 transition">
-                      {translations[language][item.name]}
+                      {translations[language].jobs}
                     </span>
                     <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-400 transition-all group-hover:w-full"></span>
-                  </a>
-                )}
+                  </Link>
+                ) : item.name === "contact" ? (
+                  <Link to="/contact" className="relative group">
+                    <span className="hover:text-blue-400 transition">
+                      {translations[language].contact}
+                    </span>
+                    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-400 transition-all group-hover:w-full"></span>
+                  </Link>
+                ) : null}
               </li>
             ))}
 
@@ -175,66 +187,21 @@ function Navbar() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
               className={`md:hidden px-6 py-4 space-y-4 ${
-                scrolled ? "bg-gray-900/95 text-white" : "bg-gray-800/95 text-white"
+                scrolled
+                  ? "bg-gray-900/95 text-white"
+                  : "bg-gray-800/95 text-white"
               }`}
             >
-              {menuItems.map((item) =>
-                item.name === "home" ? (
-                  <Link
-                    key={item.name}
-                    to="/"
-                    className="block hover:text-blue-400 transition"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {translations[language].home}
-                  </Link>
-                ) : item.name === "about" ? (
-                  <Link
-                    key={item.name}
-                    to="/about"
-                    className="block hover:text-blue-400 transition"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {translations[language].about}
-                  </Link>
-                ) : item.name === "company-profile" ? (
-                  <Link
-                    key={item.name}
-                    to="/company-profile"
-                    className="block hover:text-blue-400 transition"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {translations[language].company}
-                  </Link>
-                ) : item.name === "services" ? (
-                  <Link
-                    key={item.name}
-                    to="/services"
-                    className="block hover:text-blue-400 transition"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {translations[language].services}
-                  </Link>
-                ) : item.name === "israel" ? (
-                  <Link
-                    key={item.name}
-                    to="/israel"
-                    className="block hover:text-blue-400 transition"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {translations[language].israel}
-                  </Link>
-                ) : (
-                  <a
-                    key={item.name}
-                    href={`#${item.name}`}
-                    className="block hover:text-blue-400 transition"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {translations[language][item.name]}
-                  </a>
-                )
-              )}
+              {menuItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={`/${item.name}`}
+                  className="block hover:text-blue-400 transition"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {translations[language][item.name]}
+                </Link>
+              ))}
 
               {/* Language Switcher (Mobile) */}
               <button
