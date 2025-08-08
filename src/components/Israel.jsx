@@ -3,27 +3,22 @@ import { useState } from "react";
 import {
   ChevronDown,
   ChevronUp,
-  FileText,
   CheckCircle2,
   HelpCircle,
   Building2,
   HeartHandshake,
-  Home,
-  ShieldCheck,
-  Users2,
 } from "lucide-react";
-import ApplyModal from "../components/ApplyModal"; // ✅ NEW IMPORT
+import ApplyModal from "../components/ApplyModal"; // 
 
 export default function Israel() {
   const [openIndex, setOpenIndex] = useState(null);
   const toggleFAQ = (i) => setOpenIndex(openIndex === i ? null : i);
 
-  const [selectedJob, setSelectedJob] = useState(null); // ✅ For modal
+  const [selectedJob, setSelectedJob] = useState(null); // 
 
   const heroImage =
     "https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?auto=compress&cs=tinysrgb&w=1600";
 
-  // Vacancies
   const vacancies = [
     {
       title: "Caregivers",
@@ -42,7 +37,6 @@ export default function Israel() {
     },
   ];
 
-  // Steps
   const steps = [
     { title: "Apply for Employment", desc: "Fill candidate form online & choose a vacancy." },
     { title: "Application Review", desc: "Our specialists check your documents & eligibility." },
@@ -54,7 +48,6 @@ export default function Israel() {
     { title: "Start Employment", desc: "Begin 3-month paid internship, then extend contract up to 5 years." },
   ];
 
-  // Benefits
   const benefits = [
     "Legal employment under B/1 Work Visa",
     "Salary: 46 Shekels/hour (~$12.5 USD/hour)",
@@ -66,7 +59,6 @@ export default function Israel() {
     "100% candidate support at every stage",
   ];
 
-  // Candidate Requirements
   const requirements = [
     "Men & women aged 21–55",
     "Knowledge of English or Russian",
@@ -78,7 +70,6 @@ export default function Israel() {
     "Advantage: technical education or Gulf/Europe work experience",
   ];
 
-  // FAQs
   const faqs = [
     { q: "What visa will I get?", a: "B/1 Work Visa, valid for 1 year, renewable up to 5 years." },
     { q: "Is accommodation free?", a: "Yes, family-style hostels & apartments are provided." },
@@ -117,7 +108,7 @@ export default function Israel() {
         </div>
       </div>
 
-      {/* ✅ Main Content */}
+      {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 lg:px-20 py-20 space-y-28">
         {/* Vacancies */}
         <section>
@@ -284,7 +275,7 @@ export default function Israel() {
           </div>
         </section>
 
-        {/* CTA */}
+         {/* CTA */}
         <section
           id="apply"
           className="text-center bg-gradient-to-r from-blue-700 to-blue-900 text-white p-12 rounded-2xl shadow-lg"
@@ -299,15 +290,14 @@ export default function Israel() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            {/* Apply Button */}
-            <a
-              href="#contact"
+            {/* Updated Apply Button */}
+            <button
+              onClick={() => setSelectedJob("General Israel Application")}
               className="px-10 py-4 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold rounded-lg shadow transition"
             >
               Apply Now
-            </a>
+            </button>
 
-            {/* Download Details Button */}
             <a
               href="/company-profile_konnect-talent.pdf"
               download
@@ -318,6 +308,9 @@ export default function Israel() {
           </div>
         </section>
       </div>
+
+      {/*  Apply Modal */}
+      <ApplyModal open={!!selectedJob} onClose={() => setSelectedJob(null)} jobTitle={selectedJob} />
     </section>
   );
 }

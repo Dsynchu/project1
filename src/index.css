@@ -16,7 +16,7 @@ html {
   background: white;
 }
 
-/* ✋ Disable scroll when IntroScreen is active */
+/* Disable scroll when IntroScreen is active */
 .no-scroll {
   overflow: hidden;
   height: 100vh;

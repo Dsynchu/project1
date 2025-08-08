@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import ApplyModal from "../components/ApplyModal"; // ✅ Modal import
+import ApplyModal from "../components/ApplyModal"; //  Modal import
 
 export default function JobsSection() {
-  const [selectedJob, setSelectedJob] = useState(null); // ✅ Track selected job
+  const [selectedJob, setSelectedJob] = useState(null);
 
   // Dubai Jobs
   const jobsDubai = [
@@ -83,7 +83,6 @@ export default function JobsSection() {
     },
   ];
 
-  // Job Card Component
   const JobCard = ({ job }) => (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -102,7 +101,7 @@ export default function JobsSection() {
       <p className="text-gray-500 text-sm mt-1">{job.details}</p>
       <p className="text-blue-400 font-medium mt-2">{job.salary}</p>
       <button
-        onClick={() => setSelectedJob(job.title)} // ✅ Open modal with job title
+        onClick={() => setSelectedJob(job.title)}
         className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 hover:shadow-lg transition"
       >
         Apply Now
@@ -168,9 +167,10 @@ export default function JobsSection() {
         </div>
       </div>
 
-      {/* ✅ Apply Modal */}
+      {/*  Apply Modal */}
       {selectedJob && (
         <ApplyModal
+          open={true}
           jobTitle={selectedJob}
           onClose={() => setSelectedJob(null)}
         />
