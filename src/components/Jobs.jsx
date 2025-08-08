@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
+import ApplyModal from "../components/ApplyModal"; // ✅ Modal import
 
 export default function JobsSection() {
+  const [selectedJob, setSelectedJob] = useState(null); // ✅ Track selected job
+
   // Dubai Jobs
   const jobsDubai = [
     {
@@ -68,7 +72,7 @@ export default function JobsSection() {
       location: "Bahrain",
       salary: "BHD 300 – 400",
       img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80",
-      details: "Multi‑cuisine exp preferred",
+      details: "Multi-cuisine exp preferred",
     },
     {
       title: "Electrician",
@@ -97,7 +101,10 @@ export default function JobsSection() {
       <p className="text-gray-400 text-sm mt-1">{job.location}</p>
       <p className="text-gray-500 text-sm mt-1">{job.details}</p>
       <p className="text-blue-400 font-medium mt-2">{job.salary}</p>
-      <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 hover:shadow-lg transition">
+      <button
+        onClick={() => setSelectedJob(job.title)} // ✅ Open modal with job title
+        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 hover:shadow-lg transition"
+      >
         Apply Now
       </button>
     </motion.div>
@@ -113,11 +120,9 @@ export default function JobsSection() {
         backgroundSize: "400% 400%",
       }}
     >
-      {/* Overlay for depth */}
       <div className="absolute inset-0 bg-black/40"></div>
 
       <div className="relative max-w-6xl mx-auto px-6 lg:px-20 z-10">
-        {/* Section Title */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -157,12 +162,19 @@ export default function JobsSection() {
         </motion.h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
           {jobsOverseas.map((job, i) => (
             <JobCard key={i} job={job} />
           ))}
         </div>
       </div>
+
+      {/* ✅ Apply Modal */}
+      {selectedJob && (
+        <ApplyModal
+          jobTitle={selectedJob}
+          onClose={() => setSelectedJob(null)}
+        />
+      )}
     </section>
   );
 }

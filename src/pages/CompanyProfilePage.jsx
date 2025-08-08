@@ -40,7 +40,7 @@ export default function CompanyProfilePage() {
 
   const heroImage =
     "https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&w=1600"; 
-  // ✅ Dubai skyline image (reliable Pexels link)
+  //  Dubai skyline image (reliable Pexels link)
 
   return (
     <section className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100">
