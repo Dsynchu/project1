@@ -10,10 +10,13 @@ export default function AboutSection() {
 
   return (
     <>
-      {/*  Animated Gradient Background */}
-      <section id="about" className="relative py-20 animate-gradient-x text-white">
+      {/* About Us Section */}
+      <section
+        id="about"
+        className="relative py-20 bg-gradient-to-r from-gray-900 via-gray-950 to-black text-gray-300 overflow-hidden"
+      >
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-black/60"></div>
 
         <div className="relative max-w-6xl mx-auto px-6 lg:px-20">
           {/* Title */}
@@ -22,7 +25,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-4xl font-bold text-center mb-8"
+            className="text-4xl font-bold text-center mb-8 text-gray-100"
           >
             About Us
           </motion.h2>
@@ -35,9 +38,12 @@ export default function AboutSection() {
             viewport={{ once: true }}
             className="leading-relaxed mb-10 text-center max-w-3xl mx-auto text-lg"
           >
-            At <span className="font-bold text-yellow-300">KonnectHRC</span>, we connect
-            talent with opportunities. Our mission is to transform hiring into a growth
-            journey for businesses and careers alike.
+            At{" "}
+            <span className="font-bold text-yellow-400 hover:text-yellow-300 transition">
+              KonnectHRC
+            </span>
+            , we connect talent with opportunities. Our mission is to transform hiring into a
+            growth journey for businesses and careers alike.
           </motion.p>
 
           {/* Who We Are + Vision */}
@@ -45,7 +51,7 @@ export default function AboutSection() {
             <motion.img
               src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
               alt="Team work"
-              className="rounded-2xl shadow-lg"
+              className="rounded-2xl shadow-xl border border-gray-700"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, type: "spring" }}
@@ -58,17 +64,20 @@ export default function AboutSection() {
               transition={{ duration: 0.6, type: "spring", delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-semibold mb-4 text-yellow-300">Who We Are</h3>
-              <p className="mb-6">
-                We are a passionate HR consultancy dedicated to bridging the gap between
-                businesses and skilled professionals. With innovation and dedication, we
-                help organizations build world-class teams.
+              <h3 className="text-2xl font-semibold mb-4 text-yellow-400">
+                Who We Are
+              </h3>
+              <p className="mb-6 text-gray-300">
+                We are a passionate HR consultancy dedicated to bridging the gap between businesses and skilled
+                professionals. With innovation and dedication, we help organizations build world-class teams.
               </p>
 
-              <h3 className="text-2xl font-semibold mb-4 text-yellow-300">Our Vision</h3>
-              <p>
-                To be the most trusted HR partner delivering excellence, fostering
-                sustainable growth, and transforming careers globally.
+              <h3 className="text-2xl font-semibold mb-4 text-yellow-400">
+                Our Vision
+              </h3>
+              <p className="text-gray-300">
+                To be the most trusted HR partner delivering excellence, fostering sustainable growth, and
+                transforming careers globally.
               </p>
             </motion.div>
           </div>
@@ -80,7 +89,7 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold text-center mb-6"
+              className="text-3xl md:text-4xl font-bold text-center mb-6 text-gray-100"
             >
               Our Results in Numbers
             </motion.h2>
@@ -93,10 +102,12 @@ export default function AboutSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: i * 0.2 }}
                   viewport={{ once: true }}
-                  className="text-center bg-white/10 p-6 rounded-xl shadow-lg"
+                  className="text-center bg-white/10 p-6 rounded-xl shadow-md border border-gray-700 hover:bg-white/20 transition"
                 >
-                  <h3 className="text-4xl font-extrabold text-yellow-300">{stat.number}</h3>
-                  <p className="mt-2">{stat.label}</p>
+                  <h3 className="text-4xl font-extrabold text-yellow-400">
+                    {stat.number}
+                  </h3>
+                  <p className="mt-2 text-gray-300">{stat.label}</p>
                 </motion.div>
               ))}
             </div>
@@ -104,11 +115,11 @@ export default function AboutSection() {
         </div>
       </section>
 
-      {/* 🌟 CEO Message Section */}
-      <section className="relative py-20 bg-gradient-to-r from-gray-900 via-black to-gray-950 text-white overflow-hidden">
+      {/* CEO Message Section */}
+      <section className="relative py-20 bg-gradient-to-r from-gray-900 via-black to-gray-950 text-gray-300 overflow-hidden">
         {/* Decorative Blobs */}
-        <div className="absolute top-10 left-10 w-48 h-48 bg-cyan-500/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-10 left-10 w-48 h-48 bg-cyan-600/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl"></div>
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-20 grid md:grid-cols-2 gap-12 items-center">
           {/* CEO Image */}
@@ -121,7 +132,7 @@ export default function AboutSection() {
           >
             <div className="relative">
               <img
-                src="/image/ceo.png" //  replace with actual path
+                src="/image/ceo.png" // update actual path
                 alt="CEO"
                 className="w-72 h-96 object-cover rounded-2xl shadow-2xl border-4 border-white/20"
               />
@@ -137,7 +148,7 @@ export default function AboutSection() {
             >
               Mr. [Your CEO ko Naam]
             </motion.h3>
-            <p className="text-gray-400 mt-1">Founder & CEO, KonnecttHRC</p>
+            <p className="text-gray-400 mt-1">Founder & CEO, KonnectHRC</p>
           </motion.div>
 
           {/* CEO Message */}
@@ -152,8 +163,9 @@ export default function AboutSection() {
               A Message from Our CEO
             </h2>
             <p className="text-gray-200 leading-relaxed text-lg">
-              At <span className="font-bold text-yellow-300">KonnectHRC</span>, people are
-              the foundation of every success story. Our mission has always been to empower
+              At{" "}
+              <span className="font-bold text-yellow-400">KonnectHRC</span>, people are the
+              foundation of every success story. Our mission has always been to empower
               businesses with the right talent while guiding individuals toward meaningful
               careers.
               <br />

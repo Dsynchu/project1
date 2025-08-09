@@ -1,12 +1,15 @@
-// src/pages/JobPage.jsx
 import React from "react";
 import Jobs from "../components/Jobs";
+import Footer from "../components/Footer"; 
 
 const JobPage = () => {
   return (
-    <main className="pt-20"> {/* navbar ke niche space */}
-      <Jobs />
-    </main>
+    <>
+      <main className="pt-20">
+        <Jobs />
+      </main>
+      <Footer /> 
+    </>
   );
 };
 

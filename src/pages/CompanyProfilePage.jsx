@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Footer from "../components/Footer"; 
 
 export default function CompanyProfilePage() {
   const stats = [
@@ -43,6 +44,8 @@ export default function CompanyProfilePage() {
   //  Dubai skyline image (reliable Pexels link)
 
   return (
+    <>
+
     <section className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100">
       {/* Hero Section */}
       <div className="relative h-[70vh] flex items-center justify-center text-center">
@@ -234,5 +237,7 @@ export default function CompanyProfilePage() {
         </div>
       </div>
     </section>
+    <Footer />
+    </>
   );
 }

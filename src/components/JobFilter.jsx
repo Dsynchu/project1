@@ -2,11 +2,16 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 const jobs = [
-  { id: 1, title: "Frontend Developer", location: "Bangalore", type: "Full-time" },
-  { id: 2, title: "Backend Developer", location: "Hyderabad", type: "Full-time" },
-  { id: 3, title: "UI/UX Designer", location: "Remote", type: "Part-time" },
-  { id: 4, title: "HR Manager", location: "Delhi", type: "Full-time" },
-  { id: 5, title: "Data Analyst", location: "Mumbai", type: "Internship" },
+  { id: 1, title: "Welder", location: "Dubai", type: "Full-time" },
+  { id: 2, title: "Housekeeping Staff", location: "Abu Dhabi", type: "Full-time" },
+  { id: 3, title: "Helper", location: "Sharjah", type: "Part-time" },
+  { id: 4, title: "Waiter/Waitress", location: "Dubai", type: "Full-time" },
+  { id: 5, title: "Construction Worker", location: "Ajman", type: "Full-time" },
+  { id: 6, title: "Warehouse Worker", location: "Dubai", type: "Part-time" },
+  { id: 7, title: "Cleaning Staff", location: "Fujairah", type: "Full-time" },
+  { id: 8, title: "Helper (General)", location: "Ras Al Khaimah", type: "Full-time" },
+  { id: 9, title: "Kitchen Assistant", location: "Dubai", type: "Full-time" },
+  { id: 10, title: "Security Guard", location: "Dubai", type: "Full-time" },
 ];
 
 export default function JobFilter() {
@@ -24,7 +29,8 @@ export default function JobFilter() {
       id="job-filter"
       className="relative py-20"
       style={{
-        background: "linear-gradient(135deg, #0f172a, #1e293b, #334155, #1e293b)",
+        background:
+          "linear-gradient(135deg, #0f172a, #1e293b, #334155, #1e293b)",
         backgroundSize: "400% 400%",
       }}
     >
@@ -57,11 +63,12 @@ export default function JobFilter() {
             className="w-full md:w-1/3 px-4 py-3 rounded-lg bg-gray-900/60 backdrop-blur-md border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white shadow-md transition"
           >
             <option>All</option>
-            <option>Bangalore</option>
-            <option>Hyderabad</option>
-            <option>Remote</option>
-            <option>Delhi</option>
-            <option>Mumbai</option>
+            <option>Dubai</option>
+            <option>Abu Dhabi</option>
+            <option>Sharjah</option>
+            <option>Ajman</option>
+            <option>Fujairah</option>
+            <option>Ras Al Khaimah</option>
           </select>
         </div>
 
@@ -77,9 +84,7 @@ export default function JobFilter() {
                 viewport={{ once: true }}
                 className="p-6 bg-gray-800/70 backdrop-blur-md rounded-xl shadow-lg border border-gray-700 hover:border-blue-500 hover:shadow-blue-500/30 hover:-translate-y-2 transition-all duration-300"
               >
-                <h3 className="text-xl font-bold text-white mb-2">
-                  {job.title}
-                </h3>
+                <h3 className="text-xl font-bold text-white mb-2">{job.title}</h3>
                 <p className="text-gray-300 font-medium">
                   {job.location} • {job.type}
                 </p>

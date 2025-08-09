@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Footer from "./Footer";
 import {
   ChevronDown,
   ChevronUp,
@@ -80,6 +81,7 @@ export default function Israel() {
   ];
 
   return (
+    <>
     <section className="relative">
       {/* ✅ Hero Banner */}
       <div className="relative h-[70vh] flex items-center justify-center text-center">
@@ -312,5 +314,7 @@ export default function Israel() {
       {/*  Apply Modal */}
       <ApplyModal open={!!selectedJob} onClose={() => setSelectedJob(null)} jobTitle={selectedJob} />
     </section>
+    <Footer/>
+    </>
   );
 }

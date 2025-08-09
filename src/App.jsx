@@ -27,7 +27,7 @@ import AboutPage from "./pages/AboutPage";
 import CompanyProfilePage from "./pages/CompanyProfilePage";
 import ServicesPage from "./pages/ServicesPage";
 import IntroScreen from "./components/IntroScreen";
-// import JobPage from "./pages/JobPage";
+import JobPage from "./pages/JobPage";
 import ContactPage from "./pages/ContactPage";
 
 function HomePageWrapper() {
@@ -64,9 +64,9 @@ function HomePageWrapper() {
       <Reveal direction="left" delay={0.3}>
         <Services />
       </Reveal>
-      {/* <Reveal direction="right" delay={0.3}>
+      <Reveal direction="right" delay={0.3}>
         <Jobs />
-      </Reveal> */}
+      </Reveal>
       <Reveal direction="up" delay={0.2}>
         <JobFilter />
       </Reveal>
@@ -106,7 +106,7 @@ function App() {
         <Route path="/company-profile" element={<CompanyProfilePage />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/israel" element={<Israel />} />
-        {/* <Route path="/jobs" element={<JobPage />} /> */}
+        <Route path="/jobs" element={<JobPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </Router>
